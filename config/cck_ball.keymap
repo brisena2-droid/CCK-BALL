@@ -35,13 +35,6 @@
         tap-ms = <100>;
     };
 
-    // 左右滚动编码器行为
-    scroll_horizontal_encoder: scroll_horizontal_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-        tap-ms = <100>;
-    };
     
     macros {
         f22_scroll: f22_scroll {
@@ -67,7 +60,7 @@
 &kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp DELETE  &kp SPACE  &mo 1   &mo 2   &kp SPACE  &kp ENTER  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_vertical_encoder>;
         };
 
         F_layers {
@@ -79,7 +72,7 @@
 &trans   &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_vertical_encoder>;
         };
 
         BT_layers {
@@ -91,7 +84,7 @@
 &trans  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_vertical_encoder>;
         };
 
         scroll-layers {
@@ -103,7 +96,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_vertical_encoder>;
         };
 
         snipe-layers {
@@ -116,7 +109,7 @@
             >;
 
             sensor-bindings = <&scroll_vertical_encoder>,   // 编码器1：上下滚动
-                             <&scroll_horizontal_encoder>;  // 编码器2：左右滚动
+                             <&scroll_vertical_encoder>;  // 编码器2：上下滚动
         };
 
         trackball_hold_scroll {
@@ -128,7 +121,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_vertical_encoder>;
         };
     };
 };
